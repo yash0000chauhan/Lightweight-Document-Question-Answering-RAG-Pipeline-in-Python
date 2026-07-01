@@ -1,0 +1,21 @@
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+npm-debug.log*
+
+# Python / Backend
+document_qa/__pycache__/
+document_qa/.env
+document_qa/venv/
+document_qa/env/
+document_qa/.venv/
+document_qa/data/employee_handbook_index*
+*.pyc
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+*.swp

@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-surface-border;
+  }
+  body {
+    @apply font-sans antialiased bg-surface-bg text-neutral-text;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Base card */
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-card shadow-card p-6;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-primary-600 text-white text-sm font-semibold
+           transition-all duration-300
+           hover:bg-primary-700 hover:shadow-hover
+           focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary-600 disabled:hover:shadow-none
+           active:scale-95;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-white border border-surface-border text-neutral-text text-sm font-semibold
+           transition-all duration-300
+           hover:border-primary-600 hover:text-primary-600 hover:shadow-hover
+           focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           active:scale-95;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg
+           text-neutral-secondary text-sm font-medium
+           transition-all duration-300
+           hover:bg-gray-100 hover:text-neutral-text
+           focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-1
+           active:scale-95;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+  .badge-blue   { @apply badge bg-primary-50 text-primary-700; }
+  .badge-green  { @apply badge bg-green-50 text-green-700; }
+  .badge-yellow { @apply badge bg-amber-50 text-amber-700; }
+  .badge-gray   { @apply badge bg-gray-100 text-gray-600; }
+  .badge-red    { @apply badge bg-red-50 text-red-700; }
+
+  /* Input */
+  .input-field {
+    @apply w-full rounded-xl border border-surface-border bg-white px-4 py-3
+           text-sm text-neutral-text placeholder-neutral-placeholder
+           transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent;
+  }
+
+  /* Section heading */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-neutral-secondary;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-surface-border;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { @apply bg-gray-100 rounded-full; }
+::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded-full hover:bg-gray-400; }
+
+/* Prose overrides for markdown */
+.prose-answer p   { @apply mb-3 leading-7; }
+.prose-answer ul  { @apply list-disc pl-5 mb-3 space-y-1; }
+.prose-answer ol  { @apply list-decimal pl-5 mb-3 space-y-1; }
+.prose-answer h1, .prose-answer h2, .prose-answer h3 { @apply font-semibold mt-4 mb-2; }
+.prose-answer code { @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-primary-700; }
+.prose-answer pre  { @apply bg-gray-900 text-gray-100 rounded-xl p-4 overflow-x-auto mb-3; }
+.prose-answer blockquote { @apply border-l-4 border-primary-200 pl-4 text-neutral-secondary italic; }
+.prose-answer strong { @apply font-semibold text-neutral-text; }
+
+/* Dark mode */
+.dark body { @apply bg-gray-950 text-gray-100; }
+.dark .card { @apply bg-gray-900 border-gray-800; }
+.dark .input-field { @apply bg-gray-900 border-gray-700 text-gray-100 placeholder-gray-500; }
+.dark .btn-secondary { @apply bg-gray-900 border-gray-700 text-gray-200 hover:border-primary-400 hover:text-primary-400; }
+.dark .btn-ghost { @apply hover:bg-gray-800 hover:text-gray-200; }
+.dark .badge-gray { @apply bg-gray-800 text-gray-400; }
+.dark .prose-answer code { @apply bg-gray-800 text-primary-400; }
